@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Production builds
+.next/
+out/
+build/
+
+# Generated files
+*.tsbuildinfo
+.env.local
+.env.production.local
+.env.development.local
+
+# Logs
+*.log
+
+# Database files
+*.sql
+
+# IDE
+.vscode/
+.idea/
