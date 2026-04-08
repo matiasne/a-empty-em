@@ -13,12 +13,15 @@ export default function HomePage() {
           <p className="text-xl text-muted-foreground mb-8">
             A modern Next.js application with TypeScript and PostgreSQL
           </p>
-          <div className="flex gap-4 justify-center">
+          <div className="flex gap-4 justify-center flex-wrap">
             <Button asChild>
               <Link href="/api/health">Check API Health</Link>
             </Button>
             <Button variant="outline" asChild>
               <Link href="/users">View Users</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/stopwatch">⏱ Stopwatch</Link>
             </Button>
           </div>
         </div>
