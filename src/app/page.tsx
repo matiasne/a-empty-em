@@ -20,6 +20,9 @@ export default function HomePage() {
             <Button variant="outline" asChild>
               <Link href="/users">View Users</Link>
             </Button>
+            <Button variant="outline" asChild>
+              <Link href="/stopwatch">Cronómetro</Link>
+            </Button>
           </div>
         </div>
 
