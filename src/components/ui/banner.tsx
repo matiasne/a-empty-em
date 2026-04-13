@@ -12,6 +12,7 @@ const bannerVariants = cva(
         muted: 'bg-muted text-foreground',
         accent: 'bg-accent text-accent-foreground',
         destructive: 'bg-destructive text-destructive-foreground',
+        blue: 'bg-blue-600 text-white',
       },
       size: {
         sm: 'py-8 md:py-12',

@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Banner Section */}
-      <Banner>
+      <Banner variant="blue">
         <BannerContent>
           <BannerTitle>Welcome to Test</BannerTitle>
           <BannerDescription>
