@@ -1,31 +1,46 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Banner,
+  BannerTitle,
+  BannerDescription,
+  BannerActions,
+} from '@/components/ui/banner'
 
 export default function HomePage() {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div>
+      <Banner size="lg">
+        <BannerTitle>Welcome to Test</BannerTitle>
+        <BannerDescription>
+          A modern Next.js application with TypeScript and PostgreSQL
+        </BannerDescription>
+        <BannerActions>
+          <Button variant="secondary" size="lg" asChild>
+            <Link href="/api/health">Check API Health</Link>
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            asChild
+          >
+            <Link href="/users">View Users</Link>
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            asChild
+          >
+            <Link href="/photos">View Photos</Link>
+          </Button>
+        </BannerActions>
+      </Banner>
+
+      <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">
-            Welcome to Test
-          </h1>
-          <p className="text-xl text-muted-foreground mb-4">
-            A modern Next.js application with TypeScript and PostgreSQL
-          </p>
-          <p className="text-3xl font-semibold text-primary mb-8">Hello, World! 👋</p>
-          <div className="flex gap-4 justify-center">
-            <Button asChild>
-              <Link href="/api/health">Check API Health</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/users">View Users</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/photos">View Photos</Link>
-            </Button>
-          </div>
-        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card>
@@ -71,6 +86,7 @@ export default function HomePage() {
             <p>4. Start developing with <code className="bg-background px-2 py-1 rounded">npm run dev</code></p>
           </div>
         </div>
+      </div>
       </div>
     </div>
   )
