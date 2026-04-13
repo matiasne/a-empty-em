@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'test 2',
+  title: 'test 3',
   description: 'A modern Next.js application with PostgreSQL',
 }
 
