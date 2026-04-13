@@ -10,9 +10,10 @@ export default function HomePage() {
           <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">
             Welcome to Test
           </h1>
-          <p className="text-xl text-muted-foreground mb-8">
+          <p className="text-xl text-muted-foreground mb-4">
             A modern Next.js application with TypeScript and PostgreSQL
           </p>
+          <p className="text-3xl font-semibold text-primary mb-8">Hello, World! 👋</p>
           <div className="flex gap-4 justify-center">
             <Button asChild>
               <Link href="/api/health">Check API Health</Link>
