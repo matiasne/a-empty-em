@@ -25,6 +25,11 @@ export async function POST(request: NextRequest) {
       .values({
         name: validatedData.name,
         email: validatedData.email,
+        parentsAddressStreet: validatedData.parentsAddressStreet,
+        parentsAddressCity: validatedData.parentsAddressCity,
+        parentsAddressState: validatedData.parentsAddressState,
+        parentsAddressZip: validatedData.parentsAddressZip,
+        parentsAddressCountry: validatedData.parentsAddressCountry,
       })
       .returning()
     

@@ -56,7 +56,17 @@ export function UsersList() {
         >
           <h3 className="font-semibold">{user.name}</h3>
           <p className="text-sm text-muted-foreground">{user.email}</p>
-          <p className="text-xs text-muted-foreground mt-1">
+          <div className="mt-2">
+            <p className="text-xs font-medium text-muted-foreground">Parent&apos;s Address</p>
+            <p className="text-sm">
+              {user.parentsAddressStreet},{' '}
+              {user.parentsAddressCity},{' '}
+              {user.parentsAddressState}{' '}
+              {user.parentsAddressZip},{' '}
+              {user.parentsAddressCountry}
+            </p>
+          </div>
+          <p className="text-xs text-muted-foreground mt-2">
             Created: {new Date(user.createdAt).toLocaleDateString()}
           </p>
         </div>
