@@ -1,7 +1,19 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { User } from '@/db/schema'
+import { User, UserRole } from '@/db/schema'
+
+const ROLE_BADGE_STYLES: Record<UserRole, string> = {
+  admin: 'bg-red-100 text-red-700 border border-red-300',
+  moderator: 'bg-yellow-100 text-yellow-700 border border-yellow-300',
+  user: 'bg-blue-100 text-blue-700 border border-blue-300',
+}
+
+const ROLE_LABELS: Record<UserRole, string> = {
+  admin: 'Admin',
+  moderator: 'Moderator',
+  user: 'User',
+}
 
 export function UsersList() {
   const [users, setUsers] = useState<User[]>([])
@@ -54,7 +66,14 @@ export function UsersList() {
           key={user.id}
           className="p-4 rounded-lg border bg-card text-card-foreground"
         >
-          <h3 className="font-semibold">{user.name}</h3>
+          <div className="flex items-center justify-between gap-2">
+            <h3 className="font-semibold">{user.name}</h3>
+            <span
+              className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${ROLE_BADGE_STYLES[user.role]}`}
+            >
+              {ROLE_LABELS[user.role]}
+            </span>
+          </div>
           <p className="text-sm text-muted-foreground">{user.email}</p>
           <p className="text-xs text-muted-foreground mt-1">
             Created: {new Date(user.createdAt).toLocaleDateString()}

@@ -25,6 +25,7 @@ export async function POST(request: NextRequest) {
       .values({
         name: validatedData.name,
         email: validatedData.email,
+        role: validatedData.role,
       })
       .returning()
     

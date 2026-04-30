@@ -4,10 +4,18 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { UserRole } from '@/db/schema'
+
+const ROLE_OPTIONS: { value: UserRole; label: string }[] = [
+  { value: 'user', label: 'User' },
+  { value: 'moderator', label: 'Moderator' },
+  { value: 'admin', label: 'Admin' },
+]
 
 export function AddUserForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [role, setRole] = useState<UserRole>('user')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
@@ -22,7 +30,7 @@ export function AddUserForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email }),
+        body: JSON.stringify({ name, email, role }),
       })
 
       const data = await response.json()
@@ -31,6 +39,7 @@ export function AddUserForm() {
         setMessage({ type: 'success', text: 'User created successfully!' })
         setName('')
         setEmail('')
+        setRole('user')
         // Optionally refresh the page or trigger a refetch
         window.location.reload()
       } else {
@@ -67,6 +76,23 @@ export function AddUserForm() {
           required
           placeholder="Enter user email"
         />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="role">Role</Label>
+        <select
+          id="role"
+          value={role}
+          onChange={(e) => setRole(e.target.value as UserRole)}
+          required
+          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          {ROLE_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
       </div>
 
       <Button type="submit" disabled={loading} className="w-full">

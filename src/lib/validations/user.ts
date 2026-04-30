@@ -1,5 +1,9 @@
 import { z } from 'zod'
 
+export const userRoleSchema = z.enum(['admin', 'moderator', 'user'], {
+  errorMap: () => ({ message: 'Role must be admin, moderator, or user' }),
+})
+
 export const createUserSchema = z.object({
   name: z
     .string()
@@ -9,6 +13,7 @@ export const createUserSchema = z.object({
     .string()
     .email('Invalid email address')
     .max(255, 'Email must be less than 255 characters'),
+  role: userRoleSchema.default('user'),
 })
 
 export const updateUserSchema = createUserSchema.partial()
